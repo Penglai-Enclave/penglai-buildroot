@@ -657,10 +657,8 @@ endif
 		echo "VERSION_ID=$(BR2_VERSION)"; \
 		echo "PRETTY_NAME=\"Buildroot $(BR2_VERSION)\"" \
 	) >  $(TARGET_DIR)/etc/os-release
-	#added by luxu
-	cp luxutest.txt $(TARGET_DIR)/root/
-	#cp ../enclave-driver/enclave.ko $(TARGET_DIR)/root/
-	
+	cp ../copy-files/* $(TARGET_DIR)/root/ -rf
+
 	@$(foreach d, $(call qstrip,$(BR2_ROOTFS_OVERLAY)), \
 		$(call MESSAGE,"Copying overlay $(d)"); \
 		rsync -a --ignore-times --keep-dirlinks $(RSYNC_VCS_EXCLUSIONS) \
