@@ -657,6 +657,7 @@ endif
 		echo "VERSION_ID=$(BR2_VERSION)"; \
 		echo "PRETTY_NAME=\"Buildroot $(BR2_VERSION)\"" \
 	) >  $(TARGET_DIR)/etc/os-release
+	# add penglai.ko & test programs
 	cp ../copy-files/* $(TARGET_DIR)/root/ -rf
 
 	@$(foreach d, $(call qstrip,$(BR2_ROOTFS_OVERLAY)), \
